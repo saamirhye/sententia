@@ -1,0 +1,30 @@
+[project]
+name = "sententia"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Sammy", email = "saamirhye@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=0.116.0",
+    "chromadb>=1.5.9",
+    "fastapi>=0.139.0",
+    "langgraph>=1.2.8",
+    "pydantic>=2.13.4",
+    "python-dotenv>=1.2.2",
+    "uvicorn[standard]>=0.50.2",
+]
+
+[project.scripts]
+sententia = "sententia:main"
+
+[build-system]
+requires = ["uv_build>=0.11.27,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
