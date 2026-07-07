@@ -1,0 +1,28 @@
+Citation: Atkinson v Papadakis [2025] NSWCATCD 154 (9 October 2025)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2025/154.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: rent increases (excessive rent order under s 44)
+
+Catchwords:
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Rent — Excessive rent increase — assessment by reference to market rent for comparable premises — percentage increase not determinative — tenant's capacity to pay irrelevant — Tribunal power to set lower rent
+STATUTORY INTERPRETATION — Residential Tenancies Act 2010 (NSW), section 44 — meaning of "excessive" — focus on resulting rent, not size of increase — application of section 44(5) factors
+
+REASONS FOR DECISION (excerpt)
+
+Facts: The tenants' rent was $1,350/week. The landlord gave a valid s 41 notice increasing it to $1,650/week (a 22.22% rise) from 22 March 2024. The tenants applied under s 44(1)(a) for an order the increase was excessive. An earlier Tribunal decision (capping rent at $1,550/week) was overturned on appeal for inadequate reasoning and remitted for rehearing — this is the rehearing decision.
+
+Legal test:
+
+"The phrase 'a rent increase ... is excessive', as used in section 44(1)(a), lends itself to two possible inquiries — whether the size of the rent increase is excessive, in percentage terms, or whether the proposed rent, as increased, exceeds the fair market rent for comparable premises, having regard to the listed factors. However, when applying section 44(1)(a) the Tribunal is not asking 'Is the increase too big in percentage terms?', but is rather seeking an answer to the question 'Does this increase raise the rent above what is fair market rent for this property, given its features and conditions and the timing of the rent increase?'" (citing Hu v Roggeveen [2022] NSWCATAP 295 at [52])
+
+On onus: "the tenants have the onus of proving under section 44 that the rent is above the 'general level of rents for comparable properties'" (citing Swinburne v Puco P/L (1995) NSWRT 86). The Tribunal noted it "has a broad evaluative discretion... It may consider (but is not required to consider) the factors set out in section 44(5)... those factors are non-exclusive... That discretion is structured and not unfettered: the Tribunal should consider relevant factors and disregard irrelevant ones, and its decision must be rational and evidence-based."
+
+The Tribunal expressly excluded tenant capacity to pay from consideration, consistent with s 44(5)(h): "I have not taken into account either the income of the tenants or the tenants' ability to afford the rent increase."
+
+Application: The Tribunal built a comparable-properties analysis (rent per square metre across ~15+ nearby apartments, banded into "superior," "same band," and "inferior" relative to the subject premises based on age, finish, views, parking and floor area), converging on a market rate of approximately $10.70/m² and, applied to the premises' 138m² floor area, a market rent of $1,475/week — an increase of 9.26% over the original rent, materially less than the landlord's proposed 22.22% increase.
+
+Decision:
+(1) The rent increase from $1,350/week to $1,650/week was excessive.
+(2) Rent was not to exceed $1,475/week from 22 March 2024 to 2 December 2024 (when the tenancy ended).
+(3) The landlord was ordered to repay the tenants $2,742.86 in overpaid rent for that period.
+(4) The proceeding was otherwise dismissed.

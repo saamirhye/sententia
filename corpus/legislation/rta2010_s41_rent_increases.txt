@@ -1,0 +1,30 @@
+Citation: Residential Tenancies Act 2010 (NSW) s 41
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/nsw/consol_act/rta2010207/s41.html
+Topic: rent increases
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 41
+Rent increases
+41 RENT INCREASES
+
+(1) The rent payable under a residential tenancy agreement may be increased only if--
+(a) the tenant is given a written notice by the landlord or the landlord's agent specifying the increased rent and the day from which it is payable, and
+(b) the notice is given at least 60 days before the increased rent is payable.
+(1A) The rent payable under a residential tenancy agreement--
+(a) may not be increased within 12 months after the start of the tenancy, and
+(b) may not be increased more than once in any period of 12 months.
+(2) A residential tenancy agreement and a subsequent residential tenancy agreement for the same residential premises are to be treated as a single agreement for the purposes of this section if--
+(a) the subsequent agreement is--
+(i) a renewal of the first agreement, or
+(ii) a replacement of the first agreement, even if it is a different type of residential tenancy agreement, and
+(b) the landlord is the same for each agreement, and
+(c) at least 1 tenant is the same for each agreement, and
+(d) the tenant occupies the residential premises immediately before and immediately after the renewal or replacement.
+(3) A rent increase is not payable by a tenant unless the rent is increased in accordance with this section or the rent is increased by the Tribunal.
+(4) The residential tenancy agreement is varied to specify the increased rent from the date the rent is increased in accordance with this section.
+(5) Notice of a rent increase must be given by a landlord or landlord's agent in accordance with this section even if details of the rent increase are set out in the residential tenancy agreement.
+(6) Notice of a rent increase may be cancelled or varied (so as to reduce the increase) by a subsequent written notice given to the tenant by or on behalf of the landlord. Any such later notice takes effect from the date on which the earlier notice was to take effect.
+(7) Notice of a rent increase is not required to be given by a landlord or landlord's agent if the increase arises because of the end of, or a reduction in, a rent reduction.
+(8) Subsections (1)-(7) are terms of every residential tenancy agreement.
+(9) A landlord or landlord's agent must not contravene this section.
+: Maximum penalty--20 penalty units.
+(10) The Tribunal must not make an order that a rent increase is not payable because this section has not been complied with unless the application for the order is made not later than 12 months after the rent is increased. If an application has not been made within that 12-month period, the rent increase is taken to comply with this section.

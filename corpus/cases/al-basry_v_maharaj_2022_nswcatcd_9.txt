@@ -1,0 +1,41 @@
+Citation: Al-Basry v Maharaj [2022] NSWCATCD 9 (7 February 2022)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2022/9.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: repairs / fit for habitation (tenant sought termination after asbestos found during tenant-arranged renovations)
+
+Catchwords:
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Tenant claim for termination and compensation due to alleged asbestos contamination, and failure to disclose — No breach found — Landlord claim for break lease, occupation fee and compensation — Landlord partially successful
+
+REASONS FOR DECISION (excerpt)
+
+1 The parties in this matter entered into a 6-month Residential Tenancy Agreement (RTA) commencing on 6 August 2021 at a rent of $380 per week. The Tenants state they sought and were given approval to undertake certain renovations on the property, for which they were given a rental discount. Soon after commencing these renovations, they became aware that the premises contained both asbestos and SMF, to the prior knowledge of the Landlord.
+
+4 In the Termination Notice, the Tenants allege that testing has revealed that the premises are unusable and uninhabitable due to the presence of asbestos in the roof, wall lining, walls in the bathroom, laundry and kitchen, vinyl flooring, eaves, meter board and outdoor shed. They suggest this entitles them to immediately end the tenancy without the usual 14 day notice period for breach.
+
+5 In September 2021, the Tenants applied for a number of orders:
+(a) A termination order under Section 103 of the Act due to the Landlord's breach of its obligation to provide the premises in a state of reasonable repair
+(b) Compensation pursuant to Section 187 of the Act to the maximum amount of the Tribunal's jurisdiction ($15,000) in respect of items and clothing and other personal possessions which needed to be disposed of due to contamination by the asbestos and SMF.
+(c) Payment of their rental bond under Section 175 of the Act
+(d) Rent reduction pursuant to Section 44 of the Act
+(e) Repayment of overpaid rent pursuant to Section 47 of the Act.
+
+Is the Landlord in breach of Sections 52?
+
+49 Section 52 of the Act was considered in the Appeal Panel decision of Bhandari v Laming [2015] NSWCATAP 224 and the following relevant comments appear:
+
+35 Section 52 imposes two obligations on the landlord. One obligation is to provide the residential premises in a reasonable state of cleanliness and the other is to provide residential premises that are "fit for habitation".
+
+36 To "provide" means to "furnish" or "supply" (Macquarie Dictionary online). The term "residential premises" is defined in s 3 of the RTA and means "any premises or part of premises (including any land occupied with the premises) used or intended to be used as a residence". The residential premises are not confined to the physical or structural parts of the unit, such as the walls, ceiling and fixtures or fittings, but must include the environment within the unit such as the air. The expression "fit for habitation" is not defined in the RTA but as noted by the Tribunal in Bannister v Cheung [2014] NSWCATCD 105 at [20] the test of whether residential premises are fit for habitation is a difficult one to establish and should not be lightly found. The test is objective and residential premises may not be fit for habitation even where the defect is latent or the landlord is unaware of the defect.
+
+38 The obligation to provide residential premises fit for habitation is mandatory and, according to language used in the provision, unqualified. Relevantly, the obligation is not expressed to be contingent on reasonable steps or to be dependent on the landlord being at fault or having control over the event or circumstance affecting the state of the premises. This is in contrast with the obligation on the landlord to provide and maintain the residential premises in a reasonable state of repair (s 63 RTA) and the obligation that arises in respect of the tenant's entitlement to quiet enjoyment of the residential premises (s 50 RTA).
+
+What is the standard for "fit for habitation"?
+
+50 The term is not defined in the Act, but has been subject to considerable judicial review. A review of the authorities relating to these terms was conducted in the decision of Member Sarginson in the matter of Keith Bannister v David and Mariam Cheung [2014] NSWCATCD 105... "20 The test of 'fit for habitation' is objective, rather than subjective. Residential premises may be unfit for habitation, even if the landlord is unaware of the defect. However, in De Solei v Palmhide Pty Limited [2010] NSWCTTT 464, the Tribunal noted that the test of proving that premises were not fit for habitation was a difficult one for a tenant to satisfy and a finding that premises are not fit for habitation is not to be lightly made."
+
+58 For these reasons, I am unable to find the Landlord is in breach of Clause 19 of the RTA, or Section 52 of the Act. There was accordingly no basis a law or under the RTA for early termination of the tenancy by the Tenant, and I am accordingly unable to make an order under Section 103 of the Act terminating the tenancy.
+
+Decision:
+1 The Tenant is to pay the Landlord $3041.67 on or before 10 March 2022.
+2 The Rental Bond Services is to pay the full amount of Rental Bond No. T069713-2 to the Landlord in full.
+3 The amount of the rental bond is to be credited against the amount ordered in Order 1.

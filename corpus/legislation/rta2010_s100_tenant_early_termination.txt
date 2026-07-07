@@ -1,0 +1,22 @@
+Citation: Residential Tenancies Act 2010 (NSW) s 100
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/nsw/consol_act/rta2010207/s100.html
+Topic: termination (tenant-initiated, not renovation-related)
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 100
+Early termination without compensation to landlord
+100 EARLY TERMINATION WITHOUT COMPENSATION TO LANDLORD
+
+(1) A tenant may give a termination notice for a fixed term agreement on any of the following grounds--
+(a) that the tenant has been offered, and accepted, accommodation in social housing premises,
+(b) that the tenant has accepted a place in an aged care facility or requires care in such a facility,
+(b1) that the residential premises--
+(i) have been listed on the LFAI Register during the term of the residential tenancy agreement, or
+(ii) were listed on the LFAI Register prior to the agreement being entered into and that fact was not disclosed to the tenant,
+(c) that the landlord has notified the tenant of the landlord's intention to sell the residential premises, unless the landlord disclosed the proposed sale of the premises before entering into the residential tenancy agreement as required by section 26.
+(2) The termination notice must specify a termination date that is not earlier than 14 days after the day on which the notice is given.
+(3) The termination notice may specify a termination date that is before the end of the fixed term of the residential tenancy agreement.
+(4) The tenant is not liable to pay any compensation or other additional amount for the early termination of the agreement.
+(5) In this section,
+"LFAI Register" means the register of residential premises that contain or have contained loose-fill asbestos insulation that is required to be maintained under Division 1A of Part 8 of the Home Building Act 1989 .
+
+Note: this section governs TENANT-initiated early termination (social housing offer, aged care, asbestos register listing, landlord's proposed sale) — it does NOT cover a landlord ending a tenancy for renovations. That ground is s 87F (see rta2010_s87f_87g_termination_renovation_demolition.txt). Kept in the corpus deliberately as a near-miss/distractor so retrieval has to distinguish it from s 87F.
