@@ -1,0 +1,36 @@
+Citation: Dib v Holstein & Anor [2025] NSWCATCD 19 (6 March 2025)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2025/19.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: bond disputes (landlord claim against bond; s 165 notice failure; "fair wear and tear" test)
+
+Catchwords:
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Rental bonds — Payment and release
+
+REASONS FOR DECISION (excerpt)
+
+Facts: At the end of the tenancy, the landlords claimed the whole $1,800 bond via the online Rental Bond Online service, for cleaning/repair items, but admittedly failed to give the tenant copies of quotes/invoices within 7 days as required by s 165. The tenant argued this procedural breach should bar the landlords' claim outright (the "Preliminary Issue"). The landlords also separately claimed $1,528 across four items: a broken screen door ($88, conceded), damaged carpet ($450), a patched/painted wall ($440), and carpet cleaning/urine treatment/thermal fogging ($550).
+
+Preliminary issue — does a landlord's failure to comply with s 165 defeat their bond claim?
+
+"165 Notice to tenants of claims against tenants
+(1) A landlord... who makes a claim for payment of a rental bond without the consent of the tenant must give the tenant--
+(a) a copy of a completed condition report about the residential premises at the end of the residential tenancy agreement, and
+(b) copies of any estimates, quotes, invoices or receipts for work for which the rental bond is claimed.
+(2) The documents must be provided within 7 days of the claim being made.
+...
+(4) A person who, without reasonable excuse, contravenes this section is guilty of an offence."
+
+The Tribunal held that non-compliance with s 165 is a standalone offence (dealt with, if at all, by the Local Court under s 202) but does NOT deprive the Tribunal of jurisdiction to determine the landlord's substantive bond claim under s 175: "There is nothing in the express terms of s 175 of the Act that mandates that the power of the Tribunal to make an order as to the payment of the amount of the rental bond in favour of the landlord is dependent upon the landlord having complied with s 165... Absent some contrary indication in the Act, the remedy for the failure to comply with s 165 of the Act is that set out in s 165(4). There is no such contrary indication." (applying the statutory-remedy-is-exclusive-remedy principle from Pasmore v Oswaldtwistle Urban Council [1898] AC 387)
+
+Substantive claim — "fair wear and tear"
+
+A tenant's bond liability excludes "fair wear and tear" (s 166). The Tribunal summarised the test: "'Reasonable wear and tear means the reasonable use of the house by the tenant and the ordinary operation of natural forces'... What is 'fair' wear and tear is assessed objectively according to contemporary standards and it is not assessed according to the standard of a fastidious and obsessive landlord... The onus of establishing fair wear and tear rests on the tenant." The landlord bears the onus of proving the underlying claim to the bond, but once damage beyond fair wear and tear is shown, "the onus of establishing fair wear and tear rests on the tenant."
+
+The Tribunal also emphasised proportionality/mitigation: a landlord "may be compensated for the actual loss suffered but will not receive an additional benefit, that is they are not entitled to a 'new for old' assessment of damage" — i.e. depreciation must be factored in, not full replacement cost, for a targeted repair.
+
+Outcome on each item: carpet repair ($450) allowed — entry report showed the carpet undamaged, exit report showed dog-chewed damage, a targeted repair (not new-for-old) was reasonable notwithstanding the carpet's age; wall patch/paint ($440) disallowed — photographic evidence was too poor to establish the damage was new or tenant-caused, so the landlords failed to discharge their onus; carpet cleaning/odour treatment reduced from $550 to $200 — the tenant had already paid for steam cleaning and enzyme treatment before vacating, so the landlords could only recover for the genuinely additional work (thermal fogging) needed to fix a real, tenant-caused odour problem, not for redundant re-cleaning.
+
+Decision:
+(1) The Rental Bond Board is directed to pay the respondent landlords $738.00 from the bond.
+(2) Any balance of the bond is to be paid to the applicant tenant.
+(3) The application is otherwise dismissed.

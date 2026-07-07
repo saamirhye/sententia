@@ -1,0 +1,45 @@
+Citation: Residential Tenancies Act 2010 (NSW) ss 63, 64, 65
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/nsw/consol_act/rta2010207/s63.html (and s64, s65 on the same base path)
+Topic: repairs
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 63
+Landlord's general obligation
+63 LANDLORD'S GENERAL OBLIGATION
+
+(1) A landlord must provide and maintain the residential premises in a reasonable state of repair, having regard to the age of, rent payable for and prospective life of the premises.
+(2) A landlord's obligation to provide and maintain the residential premises in a reasonable state of repair applies even though the tenant had notice of the state of disrepair before entering into occupation of the residential premises.
+(3) A landlord is not in breach of the obligation to provide and maintain the residential premises in a reasonable state of repair if the state of disrepair is caused by the tenant's breach of this Part.
+(4) This section is a term of every residential tenancy agreement.
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 64
+Urgent repairs to residential premises
+64 URGENT REPAIRS TO RESIDENTIAL PREMISES
+
+(1) A landlord must, not later than 14 days after being given a written notice from the tenant, reimburse the tenant for the reasonable costs of making urgent repairs to the residential premises.
+(2) A landlord is required to reimburse the costs only if--
+(a) the state of disrepair did not result from a breach of the residential tenancy agreement by the tenant, and
+(b) the tenant gave the landlord or the landlord's agent notice of the state of disrepair or made a reasonable attempt to do so, and
+(c) the tenant gave the landlord or landlord's agent a reasonable opportunity to make the repairs, if notice was given, and
+(d) the tenant has made a reasonable attempt to arrange for a licensed or otherwise properly qualified person nominated in the residential tenancy agreement to carry out the repairs, if such a person is so nominated, and
+(e) the repairs were carried out, if appropriate, by licensed or otherwise properly qualified persons, and
+(f) as soon as practicable after the repairs were carried out, the tenant gave the landlord or landlord's agent, or made a reasonable attempt to give the landlord or landlord's agent, a written notice setting out details of the repairs and the costs of the repairs, together with the receipts or copies of receipts for costs paid by the tenant.
+(3) The maximum amount that a tenant is entitled to be reimbursed under this section is $1,000 or such other amount as may be prescribed by the regulations.
+(4) Nothing in this section prevents a tenant, with the consent of the landlord, from making repairs to the residential premises and being reimbursed for the costs of those repairs.
+(5) This section is a term of every residential tenancy agreement.
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 65
+Tenants' remedies for repairs--Tribunal orders
+65 TENANTS' REMEDIES FOR REPAIRS--TRIBUNAL ORDERS
+
+(1) Orders for which tenant may apply The Tribunal may, on application by a tenant, make any of the following orders--
+(a) an order that the landlord carry out specified repairs,
+(b) an order that the landlord reimburse the tenant an amount for urgent repairs carried out by the tenant,
+(c) an order that the landlord reimburse the tenant an amount for repairs to a smoke alarm carried out by the tenant under section 64A(3).
+(2) Orders for repairs The Tribunal may make an order that the landlord carry out specified repairs only if it determines that the landlord has breached the obligation under this Act to maintain the residential premises in a reasonable state of repair, having regard to the age of, rent payable for and prospective life of the premises.
+(3) In deciding whether to make an order under this section, the Tribunal--
+(a) must take into consideration the regulations, if any, made under subsection (6), and
+(b) may take into consideration whether the landlord failed to act with reasonable diligence to have the repair carried out.
+(3A) The Tribunal must not determine that a landlord has breached the obligation unless it is satisfied that the landlord had notice of the need for the repair or ought reasonably to have known of the need for the repair.
+(4) Reimbursement for urgent repairs The Tribunal may order that the landlord reimburse the tenant an amount for urgent repairs carried out by the tenant if it is satisfied that the landlord has failed to reimburse the tenant for the costs in accordance with this Division.
+(5) Payment of rent into Tribunal The Tribunal may order that all or part of the rent payable under a residential tenancy agreement be paid into the Tribunal until an order under this section has been complied with.
+(6) Guidelines relating to reasonable time for repairs The regulations may provide for guidelines relating to reasonable times within which repairs to, and maintenance of, residential premises required to be carried out by the landlord under the residential tenancy agreement, this Act or any other Act or law should be carried out.

@@ -1,0 +1,41 @@
+Citation: Dawson v G&J Investments Pty Limited [2024] NSWCATCD 40 (12 April 2024)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2024/40.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: repairs (landlord's repair obligation, s 65 work order) and retaliatory termination notices (s 115)
+
+Catchwords:
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Termination — Notices — Retaliatory notices
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Repairs — Landlord's duty
+LEASES AND TENANCIES — Residential Tenancies Act 2010 (NSW) — Orders for specific performance
+
+REASONS FOR DECISION (excerpt)
+
+Facts: The tenant had lived at the premises for over a decade. Air-conditioning at the property broke down; the tenant reported it and, after conciliation, the parties agreed to a temporary rent reduction (from $1,350/week down to $1,120, then $960 once repair works began) pending the AC being fixed. Repairs stalled for months — partly because the AC work required consent from the building's owners corporation, which was slow to respond. During this period the managing agents internally wrote to the landlord: "If this doesn't happen before summer I would be considering whether you want to keep this tenant on as he will be pushing for every cent of compensation he can get." On 21 November 2023, months after that email and after repeated tenant complaints about the still-broken AC through a Sydney heatwave, the landlord issued a "no grounds" termination notice under s 85 (90 days' notice, no reason required), stating it was needed for "works at the property needing to take place with vacant possession."
+
+The tenant applied for: (1) a declaration the termination notice was retaliatory under s 115; (2) a repair order under s 65; and (3) specific performance / compensation orders under s 187.
+
+Legal framework — retaliatory eviction (s 115):
+
+"115 Retaliatory evictions
+(1) The Tribunal may, on application by a tenant... declare that a termination notice has no effect... if it is satisfied that a termination notice given... by the landlord was a retaliatory notice...
+(2) The Tribunal may find that a termination notice is a retaliatory notice... if it is satisfied that the landlord was wholly or partly motivated to give the notice... for any of the following reasons--
+(a) the tenant had applied or proposed to apply to the Tribunal for an order,
+(b) the tenant had taken or proposed to take any other action to enforce a right of the tenant under the residential tenancy agreement, this Act or any other law,
+(c) an order of the Tribunal was in force in relation to the landlord and tenant."
+
+This matters because s 85 otherwise lets a landlord end a periodic tenancy with 90 days' notice and no stated reason at all — s 115 is the check on that power being used to punish a tenant for asserting their rights (e.g. pursuing a repair claim), rather than for a genuine "no grounds" reason.
+
+Legal framework — repair obligation (s 65), read with s 63:
+
+"63(1) A landlord must provide and maintain the residential premises in a reasonable state of repair, having regard to the age of, rent payable for and prospective life of the premises.
+...
+65(2) The Tribunal may make an order that the landlord carry out specified repairs only if it determines that the landlord has breached the obligation under this Act to maintain the residential premises in a reasonable state of repair...
+(3A) The Tribunal must not determine that a landlord has breached the obligation unless it is satisfied that the landlord had notice of the need for the repair or ought reasonably to have known of the need for the repair."
+
+The Tribunal found the internal agent email ("why would you keep this tenant on, he will keep asking for every cent of compensation") combined with the timing of the notice (issued while AC repairs remained outstanding, shortly after further tenant complaints during a heatwave) was sufficient to establish the s 115 retaliatory motive, notwithstanding the landlord's stated "genuine" reason of wanting to refurbish. The Tribunal also found the landlord in breach of s 63/65 for failing to progress the air-conditioning repair with reasonable diligence, notwithstanding the strata-consent complication, and made a specific work order requiring the landlord to "use its best endeavours" to obtain any necessary strata approvals as part of complying with the repair order.
+
+Decision:
+(1) Pursuant to s 115, the Tribunal declared the landlord's termination notice of 21 November 2023 was a retaliatory notice and of no effect.
+(2) Pursuant to s 65(1), the landlord was ordered to repair/replace the air-conditioning by 31 May 2024, including using best endeavours to obtain any necessary strata/owners corporation consent for common-property work.
+(4) Pursuant to s 187(1), the landlord was ordered to specifically perform the quiet enjoyment, repair, and statutory health/safety compliance terms of the tenancy agreement.
+(5) The balance of the tenant's claim (further compensation) was dismissed for insufficient evidence.

@@ -1,0 +1,38 @@
+Citation: Stewart v Wang [2024] NSWCATCD 70 (19 December 2024)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2024/70.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: renovations (disruption to tenant from adjoining-apartment renovation works; quiet enjoyment and rent abatement claims — not a landlord s 87F termination case)
+
+Catchwords:
+LEASES AND TENANCIES – Default and Termination – Abandonment of Premises
+LEASES AND TENANCIES – Covenants – Covenant for quiet enjoyment
+
+REASONS FOR DECISION (excerpt)
+
+There are two issues that were finally pressed at the final hearing:
+(1) Who is entitled to the bond of $2,000 paid by the tenant at the start of his tenancy at the Premises? The tenant asserts that he is entitled to the return of the whole of the bond. The landlord asserts that she is entitled to $1,160 on account of a break lease fee with the balance to be returned to the tenant (Bond and Break Lease Fee Claim).
+(2) Is the tenant entitled to a retrospective rent reduction under s 43 of the Residential Tenancies Act 2010 NSW ("Act") on account of "excessive noise, dust and fumes from the demolition and renovation" of the apartment adjoining the Premises? The landlord denies any entitlement to such reduction (Rent Reduction Claim).
+
+Facts (summary)
+
+The tenant and landlord signed three residential tenancy agreements. Before signing the third (a 12-month lease from March 2023), the tenant was aware, from building notices and text messages with the landlord's agent, that significant remedial/waterproofing works were planned in the building, including in the apartment adjoining the Premises. The tenant used the impending disruption as leverage to negotiate a lower rent for the third lease: "You may not be aware, but the repairs to the waterproofing have not really commenced yet. I am expecting quite a bit of noise when they do... With all the work being done in the building for the next 6 months, I doubt they would find anyone else to stay here."
+
+Works in the adjoining apartment ran from around 24 March 2023 to 6 September 2023 and included demolition, grinding, jackhammering and core drilling of a bathroom/balcony area. On 27 September 2023 the tenant emailed a termination notice citing "excessive noise, dust and fumes from the renovation of the adjoining apartment," relying on the lease's quiet enjoyment clause (reflecting s 50 of the Act) and s 49 (health and safety risk disclosure). The tenant vacated on 16 October 2023.
+
+Bond / break fee claim — legal reasoning
+
+Section 98 allows a tenant to terminate on the ground the landlord breached the agreement; if the notice is invalid, s 106 treats vacating as abandonment, triggering a break fee under s 107. Whether the Termination Email was valid turned on whether there was in fact a breach of s 50 (quiet enjoyment):
+"(2) A landlord or landlord's agent must not interfere with, or cause or permit any interference with, the reasonable peace, comfort or privacy of the tenant in using the residential premises. ... (3) A landlord or landlord's agent must take all reasonable steps to ensure that the landlord's other neighbouring tenants do not interfere with the reasonable peace, comfort or privacy of the tenant..."
+
+The Tribunal cited Kneipp v NSW Land and Housing Corporation [2022] NSWCATCD 126 at [51]-[53]: quiet enjoyment is a relative, not absolute, entitlement, assessed by a reasonableness standard — "Mere inconvenience is not sufficient to constitute an interference, there must be a substantial interference," and the concept "operates in a real-world context having regard to contemporary standards of living... it is reasonable for there to be a degree of tolerance and give and take."
+
+The Tribunal found decisively against the tenant on the facts: "The tenant knew that the works would take place, knew they would impact the amenity of the Premises and utilised that prospect to obtain a more advantageous rate of rent. There can be no relevant interference when the tenant got what he bargained for." The absence of any complaint from the tenant between April and September 2023 was treated as objective evidence the disruption was tolerable, and the claim of breach was found to be "little more than a fig leaf for the tenant's desire to end the [lease]." The termination notice was therefore invalid, the vacating was an abandonment, and the Tribunal ordered the tenant to pay the $1,160 break fee out of the bond.
+
+Rent reduction claim — legal reasoning
+
+The tenant separately claimed a retrospective rent reduction under s 43(2)(a) (rent abates if premises become "wholly or partly uninhabitable"). The Tribunal held the claim was out of time (28-day limit under the Tribunal's rules, extendable only on the Jackson v NSW Land and Housing Corporation [2014] NSWCATAP 22 factors: length of delay, reasons for delay, prospects of success, prejudice to the other party) and, in any event, had no merit: citing Elsom & Taylor v Coroneos [2016] NSWCATCD 47 and the earlier Bennett v Thomas [1995] NSWRT 56 (tenants who moved into a house mid-renovation, fully informed, could not later claim it was uninhabitable), the Tribunal found the noise made the premises "unpleasant to use at certain times" but did not rise to "uninhabitable or unusable," and prior notice/acceptance of the works defeated the claim.
+
+Decision:
+(1) The Tribunal directs Rental Bond Services to pay the sum of $1,160.00 to the respondent landlord, out of rental bond numbered T311746-2.
+(2) The balance of the bond is to be paid to the applicant tenant.
+(3) The balance of the tenant's application is dismissed.

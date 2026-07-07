@@ -1,0 +1,27 @@
+Citation: Elsom & Taylor-Parker v Coroneos [2016] NSWCATCD 47 (26 May 2016)
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/nsw/NSWCATCD/2016/47.html
+Court: NSW Civil and Administrative Tribunal, Consumer and Commercial Division
+Topic: renovations (disruption from a neighbouring unit's renovation; leading authority on the s 43(2) "uninhabitable" test, later applied in Stewart v Wang [2024] NSWCATCD 70)
+
+Catchwords:
+RESIDENTIAL TENANCY − application by tenants for rent reduction or compensation – noise from occupant of another unit − noise not caused by landlord − uninhabitable
+
+REASONS FOR DECISION (excerpt)
+
+Facts: Tenants in Unit 23 sought a rent reduction/compensation of $2,400 (3 weeks' rent) claiming excessive noise from renovation works being carried out by the owner of Unit 26 (the unit above theirs) over an 8-week period. The landlords had disclosed and the tenants had accepted, before signing, that separate common-area renovations were planned — but the specific Unit 26 renovation was not something the landlords knew about in advance. There was no allegation the landlords themselves breached any repair or quiet-enjoyment obligation; the only available ground was s 43(2)(a) — that the premises had become "wholly or partly uninhabitable."
+
+Legal test for "uninhabitable" (extensive survey of authorities):
+
+"the state of the premises does not represent a threat to the life, limb or health of the tenant" (Morgan v Liverpool Corp [1927] 2 KB 131 at 145)
+
+"To find that the premises are not habitable the Tribunal would have to be satisfied that there is a threat to the tenant's safety, going to both structural and health issues... Fit for habitation meant at least that the premises may be lived in without risk of personal injury to life or limb or injury to health. Fit for habitation sets an objective standard" (citing De Soleil v Palmhide Pty Ltd [2010] NSWCTTT 464)
+
+"...premises are not fit for habitation if 'the state of repair is such tha[t] injury is to be expected, or will naturally occur from the ordinary use of the premises they cannot be regarded as fit for human habitation[s]'... The test is a very high test." — and the onus of proof for this "very high test" rests with the tenant.
+
+The Tribunal also stressed that habitability is not just about the physical structure but the *purpose* for which the premises (or part of them) were occupied — citing Cameron v Pemberton [1997] NSWRT 264 (an underground storage vault need only be fit for storage purposes, not habitation) and noting that a claimed "unfitness for working from home" does not count unless working from home was actually disclosed to and accepted by the landlord in advance.
+
+Prior notice/acceptance of the disruption matters: citing Bennett v Thomas [1995] NSWRT 56 (tenants who moved into a mid-renovation house, fully informed in advance, could not later claim uninhabitability) and distinguishing the problematic earlier decision in Hector v Payne [1997] NSWRT 87 (adjoining school construction found to render premises uninhabitable, but the landlord there knew of the works and had NOT disclosed them before the tenancy began — the critical distinguishing fact).
+
+Findings: the Tribunal held Unit 23 remained habitable throughout — the noise was confined to business-hours weekdays when the tenants were expected to be at their day jobs, it made the premises "unpleasant to use... at certain times" but did not render any room actually unusable, and the very high "uninhabitable" threshold was not met. Because there was no breach of any of the landlord's own statutory obligations (ss 43(1), 52, 63) and no finding of uninhabitability under s 43(2), there was no legal basis for rent abatement or compensation, notwithstanding some genuine disruption.
+
+Decision: The application is dismissed.

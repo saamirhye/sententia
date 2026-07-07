@@ -1,0 +1,48 @@
+Citation: Residential Tenancies Act 2010 (NSW) ss 159, 163, 168
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/nsw/consol_act/rta2010207/s159.html (and s163, s168 on the same base path)
+Topic: bond disputes
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 159
+Payment of bonds
+159 PAYMENT OF BONDS
+
+(1) A landlord, landlord's agent or any other person must not require or receive from a tenant or another person a rental bond of an amount exceeding 4 weeks rent under the residential tenancy agreement for which the bond was paid (as in force when the agreement was entered into).
+(1A) A landlord, landlord's agent or any other person must not require or receive from a tenant a rental bond unless--
+(a) the landlord or landlord's agent is registered as a user of the online rental bond service established under section 157A, and
+(b) the tenant has been invited by the landlord or the landlord's agent to provide an address that can be used to invite the tenant (using the online service) to use the online service to deposit the rental bond with the Secretary, and
+(c) if the tenant has provided such an address--
+(i) the landlord or landlord's agent has invited the tenant (using the online service) to use the online service to deposit the rental bond with the Secretary, and
+(ii) the tenant has been given a reasonable opportunity to use the online service to deposit the rental bond with the Secretary or has declined the invitation.
+(2) A landlord, landlord's agent or any other person must not require from a tenant or another person an amount of rental bond before the tenant signs the residential tenancy agreement.
+(2A) Subsection (2) does not prevent a landlord, landlord's agent or other person from requiring a tenant or other person who has agreed to deposit a rental bond for a residential tenancy agreement with the Secretary to provide evidence that the rental bond has been so deposited before the residential tenancy agreement is entered into.
+(3) A person who receives payment of a rental bond must provide the tenant, or person paying the bond, with a receipt for the bond but is not required to do so if details of the payment are recorded in the residential tenancy agreement.
+(4) A person who contravenes this section is guilty of an offence.
+: Maximum penalty--20 penalty units.
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 163
+Claims for rental bonds
+163 CLAIMS FOR RENTAL BONDS
+
+(1) A claim may be made to the Secretary for the payment of a rental bond by--
+(a) the tenant or an agent of the tenant, or
+(b) the landlord or an agent of the landlord, or
+(c) jointly by the landlord and the tenant or agents for them.
+(2) A claim is to be made in the approved form.
+(3) A claim must not be made before the termination of a residential tenancy agreement unless--
+(a) it is made jointly by or on behalf of the landlord and all the tenants, or
+(b) it is made by or on behalf of the landlord and directs that the rental bond be paid to all the tenants, or
+(c) it is made by or on behalf of all the tenants and directs that the rental bond be paid to the landlord.
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 168
+Disputed rental bond claims
+168 DISPUTED RENTAL BOND CLAIMS
+
+(1) This section applies if the Secretary is notified in writing within the claim notice period or before payment of a claim for a rental bond that a claim for the payment of an amount of rental bond is the subject of proceedings before the Tribunal or a court.
+(2) The Secretary may pay the claim only in the following circumstances--
+(a) if the party who disputes the claim gives the Secretary written notice of the party's consent to payment of the claim,
+(b) in accordance with an order of the Tribunal or court,
+(c) if any applicable order of the Tribunal or court has been satisfied,
+(d) if the proceedings are withdrawn.
+(3) If any applicable order of the Tribunal or a court has been wholly or partly satisfied before a claim for an amount of rental bond is paid, any amount of rental bond no longer required to satisfy the order must be paid to the party who would, but for the claim, be entitled to the amount.
+(4) The Secretary must not pay an amount of a claim until proceedings affecting the claim are finally determined if, before any amount is paid, the Secretary is given written notice of an appeal against a relevant decision of the Tribunal or a court.
+(5) A payment by the Secretary of an amount under this section in accordance with an order of the Tribunal or a court is for all purposes taken to be a payment by the person subject to the order.

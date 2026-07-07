@@ -1,0 +1,27 @@
+Citation: Residential Tenancies Act 2010 (NSW) s 44
+Source: https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/nsw/consol_act/rta2010207/s44.html
+Topic: rent increases
+
+RESIDENTIAL TENANCIES ACT 2010 - SECT 44
+Tenant's remedies for excessive rent
+44 TENANT'S REMEDIES FOR EXCESSIVE RENT
+
+(1) Excessive rent orders The Tribunal may, on the application of a tenant, make any of the following orders--
+(a) an order that a rent increase under an existing or proposed residential tenancy agreement is excessive and that, from a specified day, the rent for residential premises must not exceed a specified amount,
+(b) an order that rent payable under an existing or proposed residential tenancy agreement is excessive, having regard to the reduction or withdrawal by the landlord of any goods, services or facilities provided with the residential premises and that, from a specified day, the rent for residential premises must not exceed a specified amount.
+(2) Time limit for excessive rent increase applications An application for an order that a rent increase is excessive must be made within the period prescribed by the regulations after notice of the increase is given.
+(3) Applications on withdrawal of goods or services A tenant may, before the end of a tenancy, make an application that the rent is excessive, having regard to the reduction or withdrawal of any goods, services or facilities provided with the residential premises, even if those goods, services or facilities were provided under a separate or a previous contract, agreement or arrangement.
+(4) Determination of excessive rent For the purposes of making an order under this section, the Tribunal may declare that amounts payable under a contract, agreement or arrangement under which goods, services or facilities are provided to the tenant are rent.
+(5) The Tribunal may have regard to the following in determining whether a rent increase or rent is excessive--
+(a) the general market level of rents for comparable premises in the locality or a similar locality,
+(b) the landlord's outgoings under the residential tenancy agreement or proposed agreement,
+(c) any fittings, appliances or other goods, services or facilities provided with the residential premises,
+(d) the state of repair of the residential premises,
+(e) the accommodation and amenities provided in the residential premises,
+(f) any work done to the residential premises by or on behalf of the tenant,
+(g) when the last increase occurred,
+(h) any other matter it considers relevant (other than the income of the tenant or the tenant's ability to afford the rent increase or rent).
+(6) Effect of excessive rent order An order by the Tribunal specifying a maximum amount of rent--
+(a) has effect for the period (of not more than 12 months) specified by the Tribunal, and
+(b) binds only the landlord and tenant under the residential tenancy agreement or proposed residential tenancy agreement under which the rent is payable.
+Note : A tenant under a social housing tenancy agreement may also apply for an order that rent is excessive if a rent rebate is cancelled (see section 141(1)).
