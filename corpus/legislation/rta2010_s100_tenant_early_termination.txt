@@ -18,5 +18,3 @@ Early termination without compensation to landlord
 (4) The tenant is not liable to pay any compensation or other additional amount for the early termination of the agreement.
 (5) In this section,
 "LFAI Register" means the register of residential premises that contain or have contained loose-fill asbestos insulation that is required to be maintained under Division 1A of Part 8 of the Home Building Act 1989 .
-
-Note: this section governs TENANT-initiated early termination (social housing offer, aged care, asbestos register listing, landlord's proposed sale) — it does NOT cover a landlord ending a tenancy for renovations. That ground is s 87F (see rta2010_s87f_87g_termination_renovation_demolition.txt). Kept in the corpus deliberately as a near-miss/distractor so retrieval has to distinguish it from s 87F.

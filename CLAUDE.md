@@ -1,6 +1,6 @@
 # Sententia — operating notes
 
-**Current phase:** Phase 1 done — stub LangGraph loop verified in `backend/`. No real Chroma or Claude calls exist yet. Next up is phase 2 (real Chroma search). Update this line at the start of each new phase.
+**Current phase:** `search` now runs real Chroma hybrid (vector + BM25/RRF) retrieval over `corpus/` — `assess`/`generate` remain stubs — sequencing steps 1-2 complete. See `backend/src/sententia/retrieval/` and `backend/tests/test_retrieval.py`. No real Claude calls exist yet. Next up: swap `assess` to a real Claude sufficiency call (step 3). Update this line at the start of each new phase.
 
 ## What this is
 
