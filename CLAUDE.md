@@ -1,6 +1,6 @@
 # Sententia — operating notes
 
-**Current phase:** `search` runs real Chroma hybrid retrieval, and `assess` now runs a real Claude (Haiku, forced tool use) sufficiency judgment — only `generate` remains a stub — sequencing steps 1-3 complete. See `backend/src/sententia/llm/` and `backend/tests/test_llm_assess.py`/`test_graph_assess_llm.py`. Next up: swap `generate` to a real, non-streaming Claude call (step 4). Update this line at the start of each new phase.
+**Current phase:** The full `search → assess → generate` loop is real end to end — `search` (Chroma hybrid retrieval), `assess` (Claude Haiku, forced tool use sufficiency judgment), and `generate` (Claude Sonnet 5, non-streaming, grounded/cited answer synthesis) — sequencing steps 1-4 complete. Verified live: correct citations, honest hedging when the step cap is hit. See `backend/src/sententia/llm/`. Next up: add streaming (Claude streaming → FastAPI `StreamingResponse` → frontend SSE consumer, step 5), only after non-streaming (this phase) is solid. Update this line at the start of each new phase.
 
 ## What this is
 

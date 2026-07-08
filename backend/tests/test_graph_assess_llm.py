@@ -24,8 +24,13 @@ def test_assess_node_defaults_to_insufficient_on_llm_failure(monkeypatch):
 
 def test_graph_loop_with_mocked_assess_two_passes_then_terminates(monkeypatch, chroma_persist_dir):
     """Simulates insufficient on pass 1, sufficient on pass 2 -- loop runs
-    twice and terminates via the sufficient path, not the step cap."""
+    twice and terminates via the sufficient path, not the step cap.
+
+    generate is real as of phase 4, so generate_answer is mocked here too --
+    this test is about assess/the loop, not generate's own behavior (see
+    test_graph_generate_llm.py for that)."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED ANSWER")
 
     calls = {"n": 0}
 
@@ -44,15 +49,16 @@ def test_graph_loop_with_mocked_assess_two_passes_then_terminates(monkeypatch, c
 
     assert final_state["attempts"] == 2
     assert final_state["sufficient"] is True
-    assert "STUB ANSWER" in final_state["answer"]
-    assert "REDUCED CONFIDENCE" not in final_state["answer"]
+    assert final_state["answer"] == "MOCKED ANSWER"
 
 
 def test_graph_loop_hits_step_cap_when_always_insufficient(monkeypatch, chroma_persist_dir):
     """Simulates insufficient for all MAX_ATTEMPTS passes -- step cap still
-    terminates the loop and generate's reduced-confidence stub path fires."""
+    terminates the loop and generate still runs (real as of phase 4, mocked
+    here since this test is about the loop/step-cap, not generate itself)."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
+    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED REDUCED-CONFIDENCE ANSWER")
 
     from sententia.graph.build import build_graph
 
@@ -63,4 +69,4 @@ def test_graph_loop_hits_step_cap_when_always_insufficient(monkeypatch, chroma_p
 
     assert final_state["attempts"] == 3  # MAX_ATTEMPTS
     assert final_state["sufficient"] is False
-    assert "REDUCED CONFIDENCE" in final_state["answer"]
+    assert final_state["answer"] == "MOCKED REDUCED-CONFIDENCE ANSWER"
