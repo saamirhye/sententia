@@ -11,17 +11,31 @@ def _initial_state(query: str) -> dict:
     }
 
 
-def test_generate_node_falls_back_on_llm_failure(monkeypatch):
+def test_generate_node_falls_back_on_llm_failure(monkeypatch, chroma_persist_dir):
+    """generate() now calls get_stream_writer(), which requires a real LangGraph
+    runtime context -- unlike phase 4, it can no longer be exercised by calling
+    nodes_module.generate({...}) as a bare function outside any graph run (that
+    raises RuntimeError, see phase 5 plan's verified fact #3). Instead, drive it
+    through build_graph().invoke(), mocking judge_sufficiency to reach generate on
+    the first pass and generate_answer_stream to raise."""
+    monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (True, "stub reasoning"))
+
     def _raise(*args, **kwargs):
         raise RuntimeError("simulated API failure")
 
-    monkeypatch.setattr(nodes_module, "generate_answer", _raise)
+    monkeypatch.setattr(nodes_module, "generate_answer_stream", _raise)
 
-    result = nodes_module.generate({"query": "q", "results": [], "sufficient": True})
+    from sententia.graph.build import build_graph
 
-    assert "answer" in result
-    assert isinstance(result["answer"], str)
-    assert len(result["answer"]) > 0
+    app = build_graph()
+    final_state = app.invoke(
+        _initial_state("can a landlord end a residential lease early for renovations in NSW")
+    )
+
+    assert "answer" in final_state
+    assert isinstance(final_state["answer"], str)
+    assert len(final_state["answer"]) > 0
 
 
 def test_graph_sufficient_path_uses_real_generate_answer(monkeypatch, chroma_persist_dir):
@@ -37,11 +51,11 @@ def test_graph_sufficient_path_uses_real_generate_answer(monkeypatch, chroma_per
 
     generate_calls = []
 
-    def _fake_generate(query, results, sufficient):
+    def _fake_generate_stream(query, results, sufficient):
         generate_calls.append(sufficient)
-        return "MOCKED ANSWER: because reasons"
+        return iter(["MOCKED ANSWER: ", "because reasons"])
 
-    monkeypatch.setattr(nodes_module, "generate_answer", _fake_generate)
+    monkeypatch.setattr(nodes_module, "generate_answer_stream", _fake_generate_stream)
 
     from sententia.graph.build import build_graph
 
@@ -60,11 +74,11 @@ def test_graph_step_cap_path_uses_real_generate_answer(monkeypatch, chroma_persi
 
     generate_calls = []
 
-    def _fake_generate(query, results, sufficient):
+    def _fake_generate_stream(query, results, sufficient):
         generate_calls.append(sufficient)
-        return "MOCKED REDUCED-CONFIDENCE ANSWER"
+        return iter(["MOCKED REDUCED-CONFIDENCE ANSWER"])
 
-    monkeypatch.setattr(nodes_module, "generate_answer", _fake_generate)
+    monkeypatch.setattr(nodes_module, "generate_answer_stream", _fake_generate_stream)
 
     from sententia.graph.build import build_graph
 

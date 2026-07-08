@@ -1,7 +1,9 @@
+from langgraph.config import get_stream_writer
+
 from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
-from sententia.llm.generate import generate_answer
+from sententia.llm.generate import generate_answer_stream
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
 
 # Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
@@ -59,21 +61,36 @@ def assess(state: GraphState) -> dict:
 
 
 def generate(state: GraphState) -> dict:
-    """Real (phase 4): asks Claude to synthesize a cited answer, honest about
-    reduced confidence when the step cap was hit. On any failure, falls back to
-    a clear, honest degraded-answer string rather than raising -- generate is
-    the terminal node before END, so there's no "loop again" recovery path;
-    crashing the whole invocation on an API hiccup would be worse than a
-    visibly-labeled fallback. Never touches "results" -- see note in assess()."""
+    """Real (phase 4), streaming (phase 5): asks Claude to synthesize a cited answer,
+    honest about reduced confidence when the step cap was hit, relaying each token
+    chunk out through LangGraph's stream writer as it arrives. Under plain .invoke()
+    (e.g. run_stub.py, most tests), get_stream_writer() resolves to LangGraph's
+    built-in no-op writer, so this call is inert and behavior is identical to phase 4;
+    under the FastAPI endpoint's graph.stream(..., stream_mode="custom"), each chunk
+    is relayed live to the client. On any failure, falls back to a clear, honest
+    degraded-answer string rather than raising -- generate is the terminal node
+    before END, so there's no "loop again" recovery path; crashing the whole
+    invocation on an API hiccup would be worse than a visibly-labeled fallback.
+    If some chunks already streamed before the failure, they've already reached
+    the client and can't be un-sent, so the fallback is appended as a visible
+    continuation rather than replacing the whole answer. Never touches "results"
+    -- see note in assess()."""
+    writer = get_stream_writer()
+    chunks: list[str] = []
     try:
-        answer = generate_answer(state["query"], state["results"], state["sufficient"])
+        for chunk in generate_answer_stream(state["query"], state["results"], state["sufficient"]):
+            chunks.append(chunk)
+            writer({"type": "answer_delta", "text": chunk})
+        answer = "".join(chunks)
     except Exception as exc:
         print(f"[generate] Claude answer synthesis failed, falling back to a degraded answer: {exc!r}")
         citations = "; ".join(r["source"] for r in state["results"]) or "no sources retrieved"
-        answer = (
+        fallback = (
             "I wasn't able to generate a full answer due to a technical issue "
             "(the answer-writing step failed). Based on the research gathered so far, "
             f"the following sources may be relevant: {citations}. Please try again, "
             "or consult a legal professional directly."
         )
+        writer({"type": "answer_delta", "text": fallback})
+        answer = "".join(chunks) + (" " if chunks else "") + fallback
     return {"answer": answer}
