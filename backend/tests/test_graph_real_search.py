@@ -9,6 +9,7 @@ def _initial_state(query: str) -> dict:
         "results": [],
         "sufficient": False,
         "answer": None,
+        "human_approved": None,
     }
 
 
@@ -45,8 +46,9 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     from sententia.graph.build import build_graph
 
     app = build_graph()
+    config = {"configurable": {"thread_id": "test-real-search-two-passes"}}
     final_state = app.invoke(
-        _initial_state("can a landlord end a residential lease early for renovations in NSW")
+        _initial_state("can a landlord end a residential lease early for renovations in NSW"), config
     )
 
     assert final_state["attempts"] == 2

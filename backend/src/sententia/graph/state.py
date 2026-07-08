@@ -14,3 +14,4 @@ class GraphState(TypedDict):
     results: Annotated[list[SearchResult], operator.add]  # accumulates across search passes
     sufficient: bool
     answer: str | None
+    human_approved: bool | None

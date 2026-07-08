@@ -1,10 +1,17 @@
 from langgraph.config import get_stream_writer
+from langgraph.types import interrupt
 
 from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
 from sententia.llm.generate import generate_answer_stream
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
+
+DECLINE_MESSAGE = (
+    "No answer was generated. The available research did not reach a confident "
+    "conclusion within the search step limit, and the reduced-confidence answer "
+    "was declined at the human review checkpoint."
+)
 
 # Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
 # len(results) >= 2 stub. Now that assess (phase 3) is a real Claude judgment, that
@@ -58,6 +65,44 @@ def assess(state: GraphState) -> dict:
         return {"sufficient": False}
     print(f"[assess] sufficient={sufficient} reasoning={reasoning!r}")
     return {"sufficient": sufficient}
+
+
+def human_review(state: GraphState) -> dict:
+    """Real (phase 6): the step-cap path's human-in-the-loop checkpoint.
+    Reached only via route_after_assess's step-cap branch -- the sufficient
+    path goes straight from assess to generate, untouched.
+
+    LangGraph re-executes this whole function from the top when the graph is
+    resumed (confirmed: only the interrupted node re-runs, not the nodes
+    before it), so nothing before the interrupt() call may have an
+    observable effect -- no print(), no LLM call. get_stream_writer() itself
+    is safe to call early (it doesn't write anything until invoked with a
+    payload), matching generate()'s existing structure.
+
+    On approve: only sets human_approved -- "answer" stays None, generate
+    sets it for real next. On decline: streams the fixed decline message as
+    an answer_delta chunk (the same channel generate() uses -- there's no
+    separate "the answer arrived via a different field" case for callers to
+    handle) and sets "answer" directly, since generate/generate_answer_stream
+    must never run in this branch."""
+    writer = get_stream_writer()
+    decision = interrupt(
+        {
+            "question": (
+                "Search hit the step limit without reaching a confident answer. "
+                "Proceed with a reduced-confidence, hedged answer anyway?"
+            ),
+            "query": state["query"],
+            "attempts": state["attempts"],
+            "results": state["results"],
+        }
+    )
+    if decision:
+        print("[human_review] approved -- proceeding to generate")
+        return {"human_approved": True}
+    writer({"type": "answer_delta", "text": DECLINE_MESSAGE})
+    print("[human_review] declined -- ending without generating")
+    return {"human_approved": False, "answer": DECLINE_MESSAGE}
 
 
 def generate(state: GraphState) -> dict:
