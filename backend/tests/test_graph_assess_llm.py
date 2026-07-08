@@ -30,7 +30,7 @@ def test_graph_loop_with_mocked_assess_two_passes_then_terminates(monkeypatch, c
     this test is about assess/the loop, not generate's own behavior (see
     test_graph_generate_llm.py for that)."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
-    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED ANSWER")
+    monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
 
     calls = {"n": 0}
 
@@ -58,7 +58,9 @@ def test_graph_loop_hits_step_cap_when_always_insufficient(monkeypatch, chroma_p
     here since this test is about the loop/step-cap, not generate itself)."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
-    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED REDUCED-CONFIDENCE ANSWER")
+    monkeypatch.setattr(
+        nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED REDUCED-CONFIDENCE ANSWER"])
+    )
 
     from sententia.graph.build import build_graph
 

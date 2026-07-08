@@ -40,7 +40,7 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     monkeypatch.setattr(
         nodes_module, "judge_sufficiency", lambda query, results: (len(results) >= 2, "stub heuristic")
     )
-    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED ANSWER")
+    monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
 
     from sententia.graph.build import build_graph
 

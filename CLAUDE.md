@@ -1,6 +1,6 @@
 # Sententia — operating notes
 
-**Current phase:** The full `search → assess → generate` loop is real end to end — `search` (Chroma hybrid retrieval), `assess` (Claude Haiku, forced tool use sufficiency judgment), and `generate` (Claude Sonnet 5, non-streaming, grounded/cited answer synthesis) — sequencing steps 1-4 complete. Verified live: correct citations, honest hedging when the step cap is hit. See `backend/src/sententia/llm/`. Next up: add streaming (Claude streaming → FastAPI `StreamingResponse` → frontend SSE consumer, step 5), only after non-streaming (this phase) is solid. Update this line at the start of each new phase.
+**Current phase:** Streaming is real end to end — sequencing step 5 complete. `generate` relays Claude's token stream through LangGraph's native `get_stream_writer()`/`stream_mode=["custom","values"]` mechanism (inert no-op under plain `.invoke()`, live under the API), exposed via a new FastAPI `POST /api/chat` SSE endpoint (`backend/src/sententia/api/`). Verified live: real token-by-token deltas over `curl -N`, correct final `done` event with results/sufficient/attempts. See `backend/src/sententia/llm/generate.py` and `backend/src/sententia/api/`. Next up: human-in-the-loop `interrupt()` checkpoint on the step-cap path (step 6). Update this line at the start of each new phase.
 
 ## What this is
 
