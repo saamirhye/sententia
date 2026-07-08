@@ -1,6 +1,6 @@
 # Sententia — operating notes
 
-**Current phase:** `search` now runs real Chroma hybrid (vector + BM25/RRF) retrieval over `corpus/` — `assess`/`generate` remain stubs — sequencing steps 1-2 complete. See `backend/src/sententia/retrieval/` and `backend/tests/test_retrieval.py`. No real Claude calls exist yet. Next up: swap `assess` to a real Claude sufficiency call (step 3). Update this line at the start of each new phase.
+**Current phase:** `search` runs real Chroma hybrid retrieval, and `assess` now runs a real Claude (Haiku, forced tool use) sufficiency judgment — only `generate` remains a stub — sequencing steps 1-3 complete. See `backend/src/sententia/llm/` and `backend/tests/test_llm_assess.py`/`test_graph_assess_llm.py`. Next up: swap `generate` to a real, non-streaming Claude call (step 4). Update this line at the start of each new phase.
 
 ## What this is
 

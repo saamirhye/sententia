@@ -1,14 +1,14 @@
 from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
+from sententia.llm.assess import judge_sufficiency
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
 
-# Kept small deliberately: assess (below) fires once results has >= 2 items, and
-# results accumulates via operator.add across passes (see state.py). With top_k=1,
-# a query needs two search passes to cross that threshold, so the loop-back edge
-# keeps getting exercised end-to-end with real data, not just single-shot retrieval
-# quality. Revisit once assess becomes a real LLM judgment (phase 3) and this
-# coupling to a raw result count goes away.
-SEARCH_TOP_K = 1
+# Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
+# len(results) >= 2 stub. Now that assess (phase 3) is a real Claude judgment, that
+# coupling is gone -- bumped to 2 so real retrieval gets more candidates per pass
+# and has a genuine shot at surfacing the correct provision within MAX_ATTEMPTS,
+# rather than being structurally capped at the first couple of ranked results.
+SEARCH_TOP_K = 2
 
 
 def search(state: GraphState) -> dict:
@@ -40,12 +40,21 @@ def search(state: GraphState) -> dict:
 
 
 def assess(state: GraphState) -> dict:
-    """Stub: heuristic on result count only (no LLM call). Intentionally never
-    touches "results" -- LangGraph only applies a field's reducer when a node's
+    """Real (phase 3): asks Claude (forced tool use) whether accumulated results
+    are sufficient. On any failure (missing/invalid key, network error, timeout,
+    malformed response), defaults to sufficient=False rather than raising --
+    MAX_ATTEMPTS/route_after_assess already exists to cap the loop, so "give up
+    gracefully" is safer than crashing the graph. Intentionally never touches
+    "results" -- LangGraph only applies a field's reducer when a node's
     returned dict includes that key, so omitting it here correctly means "no
-    change to results", not "reduce with nothing".
-    Real version (phase 3) asks Claude to judge sufficiency."""
-    return {"sufficient": len(state["results"]) >= 2}
+    change to results", not "reduce with nothing"."""
+    try:
+        sufficient, reasoning = judge_sufficiency(state["query"], state["results"])
+    except Exception as exc:
+        print(f"[assess] Claude sufficiency judgment failed, defaulting to sufficient=False: {exc!r}")
+        return {"sufficient": False}
+    print(f"[assess] sufficient={sufficient} reasoning={reasoning!r}")
+    return {"sufficient": sufficient}
 
 
 def generate(state: GraphState) -> dict:
