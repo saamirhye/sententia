@@ -14,15 +14,24 @@ def _initial_state(query: str) -> dict:
 
 def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_persist_dir):
     """End-to-end acceptance bar carried over from phase 1, now with real
-    retrieval: two search passes (needed to cross assess's >= 2 threshold at
+    retrieval: two search passes (needed to cross the sufficiency threshold at
     SEARCH_TOP_K=1), correct loop, correct termination. Assertions are anchored
     to real corpus citations (proving fake stub data is gone) rather than to a
     specific expected top result, since hybrid search over this small corpus
     doesn't guarantee any single document ranks first for every query -- see
-    test_retrieval.py for the actual ranking-quality assertions."""
+    test_retrieval.py for the actual ranking-quality assertions.
+
+    assess is now a real Claude call (phase 3) -- to keep this test scoped to
+    search (its original phase 2 purpose) rather than depending on a live API
+    key, judge_sufficiency is monkeypatched back to the old count-based
+    heuristic it replaced. Real assess + real search together are covered by
+    test_graph_assess_llm.py's mocked-assess tests."""
     import sententia.graph.nodes as nodes_module
 
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(
+        nodes_module, "judge_sufficiency", lambda query, results: (len(results) >= 2, "stub heuristic")
+    )
 
     from sententia.graph.build import build_graph
 
