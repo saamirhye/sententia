@@ -1,6 +1,7 @@
 from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
+from sententia.llm.generate import generate_answer
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
 
 # Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
@@ -58,15 +59,21 @@ def assess(state: GraphState) -> dict:
 
 
 def generate(state: GraphState) -> dict:
-    """Stub: string concatenation of accumulated results, no LLM call. Also never
-    touches "results" -- see note in assess() above.
-    Real version (phase 4) streams a cited answer from Claude."""
-    citations = "; ".join(r["source"] for r in state["results"])
-    if state["sufficient"]:
-        answer = f"[STUB ANSWER] Based on {citations}: <placeholder answer text>."
-    else:
+    """Real (phase 4): asks Claude to synthesize a cited answer, honest about
+    reduced confidence when the step cap was hit. On any failure, falls back to
+    a clear, honest degraded-answer string rather than raising -- generate is
+    the terminal node before END, so there's no "loop again" recovery path;
+    crashing the whole invocation on an API hiccup would be worse than a
+    visibly-labeled fallback. Never touches "results" -- see note in assess()."""
+    try:
+        answer = generate_answer(state["query"], state["results"], state["sufficient"])
+    except Exception as exc:
+        print(f"[generate] Claude answer synthesis failed, falling back to a degraded answer: {exc!r}")
+        citations = "; ".join(r["source"] for r in state["results"]) or "no sources retrieved"
         answer = (
-            f"[STUB ANSWER - REDUCED CONFIDENCE, step cap reached] "
-            f"Best available from {citations}: <placeholder answer text>."
+            "I wasn't able to generate a full answer due to a technical issue "
+            "(the answer-writing step failed). Based on the research gathered so far, "
+            f"the following sources may be relevant: {citations}. Please try again, "
+            "or consult a legal professional directly."
         )
     return {"answer": answer}

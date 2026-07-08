@@ -21,11 +21,12 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     every query -- see test_retrieval.py for the actual ranking-quality
     assertions.
 
-    assess is now a real Claude call (phase 3) -- to keep this test scoped to
-    search (its original phase 2 purpose) rather than depending on a live API
-    key, judge_sufficiency is monkeypatched back to the old count-based
-    heuristic it replaced. Real assess + real search together are covered by
-    test_graph_assess_llm.py's mocked-assess tests.
+    assess and generate are both real now (phases 3-4) -- to keep this test
+    scoped to search (its original phase 2 purpose) rather than depending on a
+    live API key, judge_sufficiency is monkeypatched back to the old
+    count-based heuristic it replaced, and generate_answer is mocked to a
+    fixed string. Real assess/generate + real search together are covered by
+    test_graph_assess_llm.py and test_graph_generate_llm.py's mocked tests.
 
     SEARCH_TOP_K is separately pinned to 1 here (production default is now 2,
     tuned once assess became real) so this test keeps exercising exactly two
@@ -39,6 +40,7 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     monkeypatch.setattr(
         nodes_module, "judge_sufficiency", lambda query, results: (len(results) >= 2, "stub heuristic")
     )
+    monkeypatch.setattr(nodes_module, "generate_answer", lambda *a, **kw: "MOCKED ANSWER")
 
     from sententia.graph.build import build_graph
 
@@ -50,9 +52,7 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     assert final_state["attempts"] == 2
     assert len(final_state["results"]) == 2
     assert final_state["sufficient"] is True
-    assert final_state["answer"] is not None
-    assert "STUB ANSWER" in final_state["answer"]
-    assert "REDUCED CONFIDENCE" not in final_state["answer"]
+    assert final_state["answer"] == "MOCKED ANSWER"
 
     # Prove real retrieval, not the old fake stub data: every returned citation
     # must be a genuine corpus citation, and the two results must be distinct
