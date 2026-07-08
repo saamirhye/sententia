@@ -3,13 +3,12 @@ from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
 
-# Kept small deliberately: assess (below) fires once results has >= 2 items, and
-# results accumulates via operator.add across passes (see state.py). With top_k=1,
-# a query needs two search passes to cross that threshold, so the loop-back edge
-# keeps getting exercised end-to-end with real data, not just single-shot retrieval
-# quality. Revisit once assess becomes a real LLM judgment (phase 3) and this
-# coupling to a raw result count goes away.
-SEARCH_TOP_K = 1
+# Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
+# len(results) >= 2 stub. Now that assess (phase 3) is a real Claude judgment, that
+# coupling is gone -- bumped to 2 so real retrieval gets more candidates per pass
+# and has a genuine shot at surfacing the correct provision within MAX_ATTEMPTS,
+# rather than being structurally capped at the first couple of ranked results.
+SEARCH_TOP_K = 2
 
 
 def search(state: GraphState) -> dict:
