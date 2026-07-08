@@ -19,6 +19,10 @@ All from the *Residential Tenancies Act 2010 (NSW)*, as consolidated on AustLII 
 
 **Note on s 100:** the project's stub `search` node (phase 1) used a fake citation of "s 100" for the running example query ("can a landlord end a lease early for renovations"). Section 100 actually governs *tenant*-initiated early termination (social housing offer, aged care, asbestos register, landlord's proposed sale) — it has nothing to do with a landlord terminating for renovations, which is s 87F. Rather than silently fix the stub's placeholder citation, s 100 is kept in the corpus as a deliberate near-miss/distractor: real retrieval (phase 2) has to correctly prefer s 87F over this superficially-similar-sounding but wrong section.
 
+*(An earlier draft of this file's `.txt` had an inline editorial note explaining the distractor — it accidentally used the word "renovations" itself, which polluted both the keyword and vector search signals for this exact document. Removed; the explanation lives only here now, not in the indexed text.)*
+
+**Real result, phase 2 (verified):** hybrid retrieval ranks s 87F above s 100 as documented — but neither ranks first overall. For the running example query, three genuinely on-topic NCAT cases about renovations/repairs rank ahead of both statute sections. This is an honest, expected characteristic of hybrid search over a small (12-document), topically-narrow corpus: keyword+vector fusion can't finely out-rank a handful of legitimately-relevant near-neighbours down to one "most correct" document without a larger corpus, per-section chunking, or reranking — none of which are in scope for this phase. The acceptance bar actually tested (`backend/tests/test_retrieval.py`) is the one stated above: s 87F outranks s 100, not that s 87F is globally rank 1.
+
 ## Cases (`cases/`)
 
 | File | Citation | Topic |
