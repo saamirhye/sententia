@@ -10,6 +10,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -34,6 +35,7 @@ def test_graph_loop_with_mocked_assess_two_passes_then_terminates(monkeypatch, c
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
     monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     calls = {"n": 0}
 

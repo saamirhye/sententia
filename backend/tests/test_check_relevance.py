@@ -10,6 +10,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -29,6 +30,7 @@ def test_check_relevance_defaults_to_relevant_on_llm_failure(monkeypatch, chroma
     monkeypatch.setattr(nodes_module, "judge_relevance", _raise)
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (True, "enough"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from sententia.graph.build import build_graph
 
@@ -50,6 +52,7 @@ def test_relevant_query_proceeds_to_search_and_never_short_circuits(monkeypatch,
     monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (True, "enough"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from sententia.graph.build import build_graph
 

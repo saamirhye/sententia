@@ -16,3 +16,4 @@ class GraphState(TypedDict):
     sufficient: bool
     answer: str | None
     human_approved: bool | None
+    follow_up_questions: list[str]

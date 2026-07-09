@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Card, CardContent } from "@/components/ui/card";
 import { CitationChips } from "@/components/citation-chips";
+import { FollowUpChips } from "@/components/follow-up-chips";
 import { ReviewCard } from "@/components/review-card";
 import { ErrorPanel } from "@/components/error-panel";
 import { ThinkingIndicator } from "@/components/thinking-indicator";
@@ -10,9 +11,11 @@ import type { Exchange } from "@/lib/types";
 interface ExchangeItemProps {
   exchange: Exchange;
   onResolveReview: (exchangeId: string, approved: boolean) => void;
+  onSelectFollowUp: (question: string) => void;
+  isBusy: boolean;
 }
 
-export function ExchangeItem({ exchange, onResolveReview }: ExchangeItemProps) {
+export function ExchangeItem({ exchange, onResolveReview, onSelectFollowUp, isBusy }: ExchangeItemProps) {
   const isThinking = exchange.status === "streaming" && exchange.answerChunks.length === 0;
   const isTyping = exchange.status === "streaming" && exchange.answerChunks.length > 0;
   const isSettled = !isThinking && !isTyping;
@@ -57,6 +60,14 @@ export function ExchangeItem({ exchange, onResolveReview }: ExchangeItemProps) {
             )}
           </CardContent>
         </Card>
+      )}
+
+      {exchange.status === "done" && (
+        <FollowUpChips
+          questions={exchange.followUpQuestions}
+          onSelect={onSelectFollowUp}
+          disabled={isBusy}
+        />
       )}
     </div>
   );

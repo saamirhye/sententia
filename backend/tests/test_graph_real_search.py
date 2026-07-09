@@ -11,6 +11,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -44,6 +45,7 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
         nodes_module, "judge_sufficiency", lambda query, results: (len(results) >= 2, "stub heuristic")
     )
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from sententia.graph.build import build_graph
 

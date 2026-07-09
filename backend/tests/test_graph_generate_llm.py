@@ -10,6 +10,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -28,6 +29,7 @@ def test_generate_node_falls_back_on_llm_failure(monkeypatch, chroma_persist_dir
         raise RuntimeError("simulated API failure")
 
     monkeypatch.setattr(nodes_module, "generate_answer_stream", _raise)
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from sententia.graph.build import build_graph
 
@@ -61,6 +63,7 @@ def test_graph_sufficient_path_uses_real_generate_answer(monkeypatch, chroma_per
         return iter(["MOCKED ANSWER: ", "because reasons"])
 
     monkeypatch.setattr(nodes_module, "generate_answer_stream", _fake_generate_stream)
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from sententia.graph.build import build_graph
 
@@ -89,6 +92,7 @@ def test_graph_step_cap_path_uses_real_generate_answer(monkeypatch, chroma_persi
         return iter(["MOCKED REDUCED-CONFIDENCE ANSWER"])
 
     monkeypatch.setattr(nodes_module, "generate_answer_stream", _fake_generate_stream)
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     from langgraph.types import Command
 
