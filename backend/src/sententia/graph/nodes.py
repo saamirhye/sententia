@@ -5,6 +5,7 @@ from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
 from sententia.llm.generate import generate_answer_stream
+from sententia.llm.relevance import judge_relevance
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
 
 DECLINE_MESSAGE = (
@@ -13,12 +14,62 @@ DECLINE_MESSAGE = (
     "was declined at the human review checkpoint."
 )
 
+NOT_RELEVANT_MESSAGE = (
+    "This question doesn't appear to be about NSW residential tenancy law, which is "
+    "the only area this assistant can help with. The corpus currently covers:\n\n"
+    "- Rent increases (notice requirements, challenging excessive increases)\n"
+    "- Repairs (landlord repair obligations, habitability)\n"
+    "- Bonds (payment, release, deductions, \"fair wear and tear\")\n"
+    "- Tenant-initiated early termination of a lease\n"
+    "- Landlord termination of a lease for renovations or demolition\n"
+    "- Renovation disruption, quiet enjoyment, and retaliatory termination notices\n\n"
+    "If your question relates to one of these, try rephrasing it more specifically "
+    "and I'll take another look."
+)
+
 # Was 1 during phase 2, to keep the loop exercised while assess was still a dumb
 # len(results) >= 2 stub. Now that assess (phase 3) is a real Claude judgment, that
 # coupling is gone -- bumped to 2 so real retrieval gets more candidates per pass
 # and has a genuine shot at surfacing the correct provision within MAX_ATTEMPTS,
 # rather than being structurally capped at the first couple of ranked results.
 SEARCH_TOP_K = 2
+
+
+def check_relevance(state: GraphState) -> dict:
+    """New: a coarse, generous relevance gate that runs before search, to fail
+    fast on queries with no plausible connection to the corpus (e.g. "what's
+    the weather") rather than burning MAX_ATTEMPTS real search+assess round
+    trips before ever reaching a human checkpoint.
+
+    Deliberately generous, not a strict topic gate -- judge_relevance's prompt
+    already instructs erring toward relevant=True on any ambiguity, since a
+    false-reject (blocking a legitimate tenancy question) is worse than a
+    false-accept (letting a query through that assess will correctly flag as
+    insufficient after real attempts anyway, with its own human_review safety
+    net already in place).
+
+    On any failure, defaults to relevant=True -- the OPPOSITE fail-safe
+    direction from assess()'s relevant=False default, and deliberately so:
+    an outage in this pre-filter must never silently block a real question
+    from ever reaching search. The existing search/assess/human_review loop
+    is the system's actual safety net; this node is purely a cost/latency
+    optimization layered in front of it.
+
+    Streams NOT_RELEVANT_MESSAGE via the same get_stream_writer() +
+    answer_delta mechanism human_review's decline branch already established
+    when irrelevant, so the API's "done" event still carries a well-formed
+    answer through the one existing channel -- no new event type."""
+    writer = get_stream_writer()
+    try:
+        relevant, reasoning = judge_relevance(state["query"])
+    except Exception as exc:
+        print(f"[check_relevance] Claude relevance judgment failed, defaulting to relevant=True: {exc!r}")
+        return {"relevant": True}
+    print(f"[check_relevance] relevant={relevant} reasoning={reasoning!r}")
+    if relevant:
+        return {"relevant": True}
+    writer({"type": "answer_delta", "text": NOT_RELEVANT_MESSAGE})
+    return {"relevant": False, "answer": NOT_RELEVANT_MESSAGE}
 
 
 def search(state: GraphState) -> dict:

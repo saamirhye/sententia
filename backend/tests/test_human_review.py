@@ -9,6 +9,7 @@ def _initial_state(query: str) -> dict:
         "query": query,
         "attempts": 0,
         "results": [],
+        "relevant": None,
         "sufficient": False,
         "answer": None,
         "human_approved": None,
@@ -17,6 +18,7 @@ def _initial_state(query: str) -> dict:
 
 def test_interrupt_fires_exactly_at_step_cap(monkeypatch, chroma_persist_dir):
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
 
     app = build_graph()
@@ -33,6 +35,7 @@ def test_interrupt_fires_exactly_at_step_cap(monkeypatch, chroma_persist_dir):
 
 def test_resume_approved_reaches_generate_with_correct_state(monkeypatch, chroma_persist_dir):
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["OK ANSWER"]))
 
@@ -51,6 +54,7 @@ def test_resume_approved_reaches_generate_with_correct_state(monkeypatch, chroma
 
 def test_resume_declined_ends_with_fixed_message_and_never_generates(monkeypatch, chroma_persist_dir):
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
 
     def _fail_if_called(*args, **kwargs):

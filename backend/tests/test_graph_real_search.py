@@ -7,6 +7,7 @@ def _initial_state(query: str) -> dict:
         "query": query,
         "attempts": 0,
         "results": [],
+        "relevant": None,
         "sufficient": False,
         "answer": None,
         "human_approved": None,
@@ -37,6 +38,7 @@ def test_graph_two_passes_then_terminates_with_real_search(monkeypatch, chroma_p
     import sententia.graph.nodes as nodes_module
 
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "SEARCH_TOP_K", 1)
     monkeypatch.setattr(
         nodes_module, "judge_sufficiency", lambda query, results: (len(results) >= 2, "stub heuristic")
