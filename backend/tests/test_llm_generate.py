@@ -4,8 +4,8 @@ import sententia.llm.generate as generate_module
 from sententia.llm.generate import _build_prompt, generate_answer
 
 _RESULTS = [
-    {"source": "RTA 2010 s 87F", "snippet": "renovation ground...", "kind": "legislation"},
-    {"source": "Smith v Jones [2020] NCAT 1", "snippet": "tribunal held...", "kind": "case"},
+    {"source": "RTA 2010 s 87F", "text": "renovation ground...", "kind": "legislation"},
+    {"source": "Smith v Jones [2020] NCAT 1", "text": "tribunal held...", "kind": "case"},
 ]
 
 

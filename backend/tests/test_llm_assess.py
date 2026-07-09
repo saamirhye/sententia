@@ -6,8 +6,8 @@ from sententia.llm.assess import _build_prompt, judge_sufficiency
 
 def test_prompt_includes_query_and_all_accumulated_results():
     results = [
-        {"source": "RTA 2010 s 87F", "snippet": "renovation ground...", "kind": "legislation"},
-        {"source": "Smith v Jones [2020] NCAT 1", "snippet": "tribunal held...", "kind": "case"},
+        {"source": "RTA 2010 s 87F", "text": "renovation ground...", "kind": "legislation"},
+        {"source": "Smith v Jones [2020] NCAT 1", "text": "tribunal held...", "kind": "case"},
     ]
     prompt = _build_prompt("can a landlord end a lease for renovations", results)
 
