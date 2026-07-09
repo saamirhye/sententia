@@ -1,8 +1,10 @@
 # Sententia
 
+**TL;DR:** An agent that decides at runtime how much research it needs before answering — not a fixed one-shot RAG pipeline — with a human-approval checkpoint whenever it isn't confident enough to answer on its own.
+
 An agentic legal research assistant that decides at runtime how many search passes it needs before answering, instead of a fixed one-shot RAG call. Given a query about NSW residential tenancy law, it searches legislation and case law, assesses whether it has enough to answer confidently, and either loops back to search or generates a cited answer — capped at a fixed number of attempts, with a human-in-the-loop checkpoint before a reduced-confidence answer is ever treated as final.
 
-Personal learning project. The goal is genuine, defensible understanding of agentic AI architecture (LangGraph, multi-step reasoning loops, human-in-the-loop, streaming) — explainable in detail, not just a working demo. See [`docs/brief.md`](docs/brief.md) for the full "why an agent, not a fixed pipeline" rationale.
+See [`docs/brief.md`](docs/brief.md) for the full architecture rationale, including why this problem calls for an agent loop rather than a fixed pipeline.
 
 ## Status
 
