@@ -11,6 +11,7 @@ def _initial_state(query: str) -> dict:
         "query": query,
         "attempts": 0,
         "results": [],
+        "relevant": None,
         "sufficient": False,
         "answer": None,
         "human_approved": None,

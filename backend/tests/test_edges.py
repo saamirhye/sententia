@@ -1,4 +1,16 @@
-from sententia.graph.edges import route_after_assess, route_after_human_review
+from sententia.graph.edges import (
+    route_after_assess,
+    route_after_check_relevance,
+    route_after_human_review,
+)
+
+
+def test_relevant_routes_to_search():
+    assert route_after_check_relevance({"relevant": True}) == "search"
+
+
+def test_not_relevant_routes_to_end():
+    assert route_after_check_relevance({"relevant": False}) == "not_relevant"
 
 
 def test_sufficient_routes_to_generate_regardless_of_attempts():

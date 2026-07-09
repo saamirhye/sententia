@@ -1,8 +1,12 @@
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import END, START, StateGraph
 
-from sententia.graph.edges import route_after_assess, route_after_human_review
-from sententia.graph.nodes import assess, generate, human_review, search
+from sententia.graph.edges import (
+    route_after_assess,
+    route_after_check_relevance,
+    route_after_human_review,
+)
+from sententia.graph.nodes import assess, check_relevance, generate, human_review, search
 from sententia.graph.state import GraphState
 
 
@@ -17,12 +21,18 @@ def build_graph():
     instance -- across the initial call and the resume call."""
     graph = StateGraph(GraphState)
 
+    graph.add_node("check_relevance", check_relevance)
     graph.add_node("search", search)
     graph.add_node("assess", assess)
     graph.add_node("human_review", human_review)
     graph.add_node("generate", generate)
 
-    graph.add_edge(START, "search")
+    graph.add_edge(START, "check_relevance")
+    graph.add_conditional_edges(
+        "check_relevance",
+        route_after_check_relevance,
+        {"search": "search", "not_relevant": END},
+    )
     graph.add_edge("search", "assess")
     graph.add_conditional_edges(
         "assess",

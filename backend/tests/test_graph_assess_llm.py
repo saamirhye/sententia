@@ -6,6 +6,7 @@ def _initial_state(query: str) -> dict:
         "query": query,
         "attempts": 0,
         "results": [],
+        "relevant": None,
         "sufficient": False,
         "answer": None,
         "human_approved": None,
@@ -31,6 +32,7 @@ def test_graph_loop_with_mocked_assess_two_passes_then_terminates(monkeypatch, c
     too -- this test is about assess/the loop, not generate's own behavior
     (see test_graph_generate_llm.py for that)."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["MOCKED ANSWER"]))
 
     calls = {"n": 0}
@@ -62,6 +64,7 @@ def test_graph_loop_hits_step_cap_when_always_insufficient(monkeypatch, chroma_p
     the post-approval continuation into generate is covered by
     test_human_review.py."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
 
     def _fail_if_called(*args, **kwargs):

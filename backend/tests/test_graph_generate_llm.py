@@ -6,6 +6,7 @@ def _initial_state(query: str) -> dict:
         "query": query,
         "attempts": 0,
         "results": [],
+        "relevant": None,
         "sufficient": False,
         "answer": None,
         "human_approved": None,
@@ -20,6 +21,7 @@ def test_generate_node_falls_back_on_llm_failure(monkeypatch, chroma_persist_dir
     mocking judge_sufficiency to reach generate on the first pass and
     generate_answer_stream to raise."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (True, "stub reasoning"))
 
     def _raise(*args, **kwargs):
@@ -42,6 +44,7 @@ def test_generate_node_falls_back_on_llm_failure(monkeypatch, chroma_persist_dir
 
 def test_graph_sufficient_path_uses_real_generate_answer(monkeypatch, chroma_persist_dir):
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
 
     calls = {"n": 0}
 
@@ -76,6 +79,7 @@ def test_graph_step_cap_path_uses_real_generate_answer(monkeypatch, chroma_persi
     This test resumes with approval to prove generate still runs for real
     (mocked at the LLM call boundary, as before) once approved."""
     monkeypatch.setattr(nodes_module, "CHROMA_PERSIST_DIR", chroma_persist_dir)
+    monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
 
     generate_calls = []

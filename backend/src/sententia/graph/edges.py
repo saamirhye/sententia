@@ -2,6 +2,16 @@ from sententia.config import MAX_ATTEMPTS
 from sententia.graph.state import GraphState
 
 
+def route_after_check_relevance(state: GraphState) -> str:
+    """Relevant -> search, proceeding into the real retrieval loop as before.
+    Not relevant -> end immediately; check_relevance has already streamed and
+    set the fixed NOT_RELEVANT_MESSAGE itself, so there is nothing left for
+    search/assess/generate to do."""
+    if state["relevant"]:
+        return "search"
+    return "not_relevant"
+
+
 def route_after_assess(state: GraphState) -> str:
     """Loop back to search if insufficient and attempts remain; move to
     generate if sufficient; move to human_review if the step cap was hit
