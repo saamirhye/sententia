@@ -85,7 +85,7 @@ if migrated, or ask the author for the original files) — verified
 running end-to-end: two search passes, correct loop, correct termination,
 before any API key or vector store was involved.
 
-## Sequencing (weekend plan)
+## Sequencing
 
 1. Corpus: finalize the fixed statute/judgment set (plain text files,
    manually sourced from AustLII — no scraper).
@@ -104,13 +104,3 @@ before any API key or vector store was involved.
 
 Explicitly out of scope for this pass: cross-jurisdiction equivalence
 mapping, working-paper/export features, auth, multi-user accounts.
-
-## Working style / tool-use notes
-
-- Use Plan Mode (or equivalent review step) for architectural decisions —
-  review and understand the proposed approach before approving, don't
-  just accept the first diff.
-- After each stub→real swap, do a short teach-back: explain in your own
-  words why the swap works before moving to the next node.
-- Commit after each verified working step, not in one large commit at
-  the end.
