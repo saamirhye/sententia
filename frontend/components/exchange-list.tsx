@@ -19,7 +19,7 @@ export function ExchangeList({ exchanges, onResolveReview }: ExchangeListProps) 
   }, [exchanges.length, lastAnswerLength]);
 
   return (
-    <ScrollArea className="flex-1">
+    <ScrollArea className="min-h-0 flex-1">
       <div className="flex flex-col gap-4 py-2">
         {exchanges.map((exchange) => (
           <ExchangeItem key={exchange.id} exchange={exchange} onResolveReview={onResolveReview} />
