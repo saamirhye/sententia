@@ -13,6 +13,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -38,6 +39,7 @@ def test_resume_approved_reaches_generate_with_correct_state(monkeypatch, chroma
     monkeypatch.setattr(nodes_module, "judge_relevance", lambda query: (True, "on-topic"))
     monkeypatch.setattr(nodes_module, "judge_sufficiency", lambda query, results: (False, "never enough"))
     monkeypatch.setattr(nodes_module, "generate_answer_stream", lambda *a, **kw: iter(["OK ANSWER"]))
+    monkeypatch.setattr(nodes_module, "generate_follow_up_questions", lambda *a, **kw: ["stub question"])
 
     app = build_graph()
     config = {"configurable": {"thread_id": "test-resume-approve"}}

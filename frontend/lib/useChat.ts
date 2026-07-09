@@ -19,6 +19,7 @@ function newExchange(query: string): Exchange {
     reviewQuestion: null,
     threadId: null,
     errorMessage: null,
+    followUpQuestions: [],
   };
 }
 
@@ -73,6 +74,7 @@ export function useChat() {
                 results: payload.results,
                 sufficient: payload.sufficient,
                 attempts: payload.attempts,
+                followUpQuestions: payload.follow_up_questions,
               }),
           }
         );
@@ -123,6 +125,7 @@ export function useChat() {
                 results: payload.results,
                 sufficient: payload.sufficient,
                 attempts: payload.attempts,
+                followUpQuestions: payload.follow_up_questions,
               }),
           }
         );

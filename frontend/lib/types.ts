@@ -18,6 +18,7 @@ export interface DonePayload {
   results: SearchResult[];
   sufficient: boolean;
   attempts: number;
+  follow_up_questions: string[];
 }
 
 export type ExchangeStatus = "streaming" | "awaiting_review" | "done" | "declined" | "error";
@@ -40,4 +41,5 @@ export interface Exchange {
   reviewQuestion: string | null;
   threadId: string | null;
   errorMessage: string | null;
+  followUpQuestions: string[];
 }

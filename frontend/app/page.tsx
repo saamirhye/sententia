@@ -13,11 +13,16 @@ export default function Page() {
     <main className="mx-auto flex h-dvh w-full max-w-2xl flex-col p-4">
       <h1 className="mb-4 text-xl font-semibold">Sententia</h1>
 
+      <ExchangeList
+        exchanges={exchanges}
+        onResolveReview={resolveReview}
+        onSelectFollowUp={sendQuery}
+        isBusy={isBusy}
+      />
+
       {exchanges.length === 0 && (
         <StarterChips prompts={STARTER_PROMPTS} onSelect={sendQuery} disabled={isBusy} />
       )}
-
-      <ExchangeList exchanges={exchanges} onResolveReview={resolveReview} />
 
       <ChatInput onSubmit={sendQuery} disabled={isBusy} />
     </main>

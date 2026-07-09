@@ -6,7 +6,7 @@ from sententia.graph.edges import (
     route_after_check_relevance,
     route_after_human_review,
 )
-from sententia.graph.nodes import assess, check_relevance, generate, human_review, search
+from sententia.graph.nodes import assess, check_relevance, generate, human_review, search, suggest_followups
 from sententia.graph.state import GraphState
 
 
@@ -26,6 +26,7 @@ def build_graph():
     graph.add_node("assess", assess)
     graph.add_node("human_review", human_review)
     graph.add_node("generate", generate)
+    graph.add_node("suggest_followups", suggest_followups)
 
     graph.add_edge(START, "check_relevance")
     graph.add_conditional_edges(
@@ -44,6 +45,7 @@ def build_graph():
         route_after_human_review,
         {"generate": "generate", "declined": END},
     )
-    graph.add_edge("generate", END)
+    graph.add_edge("generate", "suggest_followups")
+    graph.add_edge("suggest_followups", END)
 
     return graph.compile(checkpointer=InMemorySaver())

@@ -4,6 +4,7 @@ from langgraph.types import interrupt
 from sententia.config import CHROMA_PERSIST_DIR
 from sententia.graph.state import GraphState, SearchResult
 from sententia.llm.assess import judge_sufficiency
+from sententia.llm.followups import generate_follow_up_questions
 from sententia.llm.generate import generate_answer_stream
 from sententia.llm.relevance import judge_relevance
 from sententia.retrieval.hybrid_search import get_collection, hybrid_search
@@ -164,8 +165,8 @@ def generate(state: GraphState) -> dict:
     built-in no-op writer, so this call is inert and behavior is identical to phase 4;
     under the FastAPI endpoint's graph.stream(..., stream_mode="custom"), each chunk
     is relayed live to the client. On any failure, falls back to a clear, honest
-    degraded-answer string rather than raising -- generate is the terminal node
-    before END, so there's no "loop again" recovery path; crashing the whole
+    degraded-answer string rather than raising -- generate has no loop-back edge
+    to search/assess, so there's no "loop again" recovery path; crashing the whole
     invocation on an API hiccup would be worse than a visibly-labeled fallback.
     If some chunks already streamed before the failure, they've already reached
     the client and can't be un-sent, so the fallback is appended as a visible
@@ -190,3 +191,33 @@ def generate(state: GraphState) -> dict:
         writer({"type": "answer_delta", "text": fallback})
         answer = "".join(chunks) + (" " if chunks else "") + fallback
     return {"answer": answer}
+
+
+def suggest_followups(state: GraphState) -> dict:
+    """New: after generate() produces a real answer, asks Claude (forced tool
+    use, same pattern as assess()/check_relevance()) for 2-3 follow-up
+    questions grounded in the query/answer/citations just produced. Each
+    question must be fully self-contained (no "and what about X" phrasing)
+    because the backend has zero cross-request conversation memory -- a
+    clicked follow-up fires a brand-new, independent /api/chat call, not a
+    continuation of this one.
+
+    Sits between generate and END specifically -- NOT on a path all runs
+    share. human_review's decline branch and check_relevance's rejection
+    branch both bypass generate (and therefore this node) entirely on
+    purpose: a fixed, un-cited decline/rejection message has nothing to
+    meaningfully follow up on.
+
+    On any failure, defaults to an empty list rather than raising. Unlike
+    assess()/check_relevance()'s fail-safe defaults, this isn't a fail-open
+    vs fail-closed routing choice -- this node makes no routing decision at
+    all, it only decorates an already-final answer. "Fail safe" here just
+    means "don't show follow-up chips this run"; the answer itself is
+    already complete and unaffected."""
+    try:
+        questions = generate_follow_up_questions(state["query"], state["answer"], state["results"])
+    except Exception as exc:
+        print(f"[suggest_followups] Claude follow-up generation failed, defaulting to no suggestions: {exc!r}")
+        return {"follow_up_questions": []}
+    print(f"[suggest_followups] generated {len(questions)} follow-up question(s)")
+    return {"follow_up_questions": questions}

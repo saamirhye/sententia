@@ -15,6 +15,7 @@ def _initial_state(query: str) -> dict:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -23,6 +24,7 @@ def _print_result(result: dict) -> None:
     print(f"Sufficient: {result['sufficient']}")
     print(f"Results: {result['results']}")
     print(f"Answer: {result['answer']}")
+    print(f"Follow-up questions: {result['follow_up_questions']}")
 
 
 if __name__ == "__main__":

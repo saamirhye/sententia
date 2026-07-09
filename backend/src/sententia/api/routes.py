@@ -29,6 +29,7 @@ def _initial_state(query: str) -> GraphState:
         "sufficient": False,
         "answer": None,
         "human_approved": None,
+        "follow_up_questions": [],
     }
 
 
@@ -66,6 +67,7 @@ def _stream_events(stream_input: Any, thread_id: str) -> Iterator[str]:
             "results": final_state["results"],
             "sufficient": final_state["sufficient"],
             "attempts": final_state["attempts"],
+            "follow_up_questions": final_state["follow_up_questions"],
         },
     )
 

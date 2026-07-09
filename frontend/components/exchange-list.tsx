@@ -8,9 +8,11 @@ import type { Exchange } from "@/lib/types";
 interface ExchangeListProps {
   exchanges: Exchange[];
   onResolveReview: (exchangeId: string, approved: boolean) => void;
+  onSelectFollowUp: (question: string) => void;
+  isBusy: boolean;
 }
 
-export function ExchangeList({ exchanges, onResolveReview }: ExchangeListProps) {
+export function ExchangeList({ exchanges, onResolveReview, onSelectFollowUp, isBusy }: ExchangeListProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const lastAnswerLength = exchanges.at(-1)?.answer.length ?? 0;
 
@@ -22,7 +24,13 @@ export function ExchangeList({ exchanges, onResolveReview }: ExchangeListProps) 
     <ScrollArea className="min-h-0 flex-1">
       <div className="flex flex-col gap-4 py-2">
         {exchanges.map((exchange) => (
-          <ExchangeItem key={exchange.id} exchange={exchange} onResolveReview={onResolveReview} />
+          <ExchangeItem
+            key={exchange.id}
+            exchange={exchange}
+            onResolveReview={onResolveReview}
+            onSelectFollowUp={onSelectFollowUp}
+            isBusy={isBusy}
+          />
         ))}
         <div ref={bottomRef} />
       </div>
