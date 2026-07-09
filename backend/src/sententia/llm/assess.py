@@ -32,7 +32,7 @@ def _build_prompt(query: str, results: list[SearchResult]) -> str:
         results_block = "(no results retrieved yet)"
     else:
         results_block = "\n\n".join(
-            f"[{i + 1}] ({r['kind']}) {r['source']}\n{r['snippet']}"
+            f"[{i + 1}] ({r['kind']}) {r['source']}\n{r['text']}"
             for i, r in enumerate(results)
         )
     return (

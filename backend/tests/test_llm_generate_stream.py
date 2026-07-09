@@ -6,7 +6,7 @@ import sententia.llm.generate as generate_module
 from sententia.llm.generate import generate_answer_stream
 
 _RESULTS = [
-    {"source": "RTA 2010 s 87F", "snippet": "renovation ground...", "kind": "legislation"},
+    {"source": "RTA 2010 s 87F", "text": "renovation ground...", "kind": "legislation"},
 ]
 
 

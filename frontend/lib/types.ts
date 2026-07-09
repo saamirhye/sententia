@@ -2,7 +2,7 @@ export type SearchResultKind = "legislation" | "case";
 
 export interface SearchResult {
   source: string;
-  snippet: string;
+  text: string;
   kind: SearchResultKind;
 }
 

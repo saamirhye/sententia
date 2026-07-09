@@ -41,7 +41,7 @@ def search(state: GraphState) -> dict:
     new_results: list[SearchResult] = [
         {
             "source": doc.citation,
-            "snippet": doc.body[:300].strip() + ("..." if len(doc.body) > 300 else ""),
+            "text": doc.body,
             "kind": doc.kind,
         }
         for doc in docs

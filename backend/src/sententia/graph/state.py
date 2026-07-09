@@ -4,7 +4,7 @@ from typing import Annotated, TypedDict
 
 class SearchResult(TypedDict):
     source: str
-    snippet: str
+    text: str
     kind: str  # "legislation" | "case"
 
 

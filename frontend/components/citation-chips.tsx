@@ -1,6 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import type { SearchResult } from "@/lib/types";
 
+const TOOLTIP_PREVIEW_LENGTH = 300;
+
+function previewText(text: string): string {
+  return text.length > TOOLTIP_PREVIEW_LENGTH
+    ? text.slice(0, TOOLTIP_PREVIEW_LENGTH).trim() + "..."
+    : text;
+}
+
 export function CitationChips({ results }: { results: SearchResult[] }) {
   if (results.length === 0) return null;
   return (
@@ -9,7 +17,7 @@ export function CitationChips({ results }: { results: SearchResult[] }) {
         <Badge
           key={i}
           variant={r.kind === "case" ? "secondary" : "outline"}
-          title={r.snippet}
+          title={previewText(r.text)}
           className="h-auto max-w-full cursor-help whitespace-normal break-words border-border/80 text-left shadow-sm"
         >
           {r.source}
