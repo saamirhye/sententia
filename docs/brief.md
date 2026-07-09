@@ -17,13 +17,13 @@ without being sure.
 
 This is a personal learning project, not a client deliverable. The goal
 is genuine, defensible understanding of agentic AI architecture (LangGraph,
-multi-step reasoning loops, human-in-the-loop patterns) — buildable and
-explainable in detail for job interviews, not just a working demo.
+multi-step reasoning loops, human-in-the-loop patterns), buildable and
+explainable in detail — not just a working demo.
 
 ## Why this shape, specifically
 
-Modelled in part on a friend's project (Ledgify, an audit-standards
-research tool) which deliberately chose a **fixed, code-orchestrated
+Modelled in part against a contrasting reference design — an audit-standards
+research tool that deliberately chose a **fixed, code-orchestrated
 pipeline over an agent**, because auditing demands reproducibility.
 Sententia makes the opposite, equally deliberate choice: legal research
 genuinely needs a runtime decision ("do I have enough, or is there a gap
@@ -35,21 +35,19 @@ specific problem, is the actual point of the project.
 
 ## Tech stack
 
-- **Backend:** Python, LangGraph, FastAPI. Python chosen deliberately over
-  Node/TypeScript (the author's usual stack) because LangGraph's Python
-  implementation has more mature checkpointing/interrupt support for
-  human-in-the-loop, and because most agentic-AI hiring/tooling content
-  assumes Python — this project is also meant to close that gap.
+- **Backend:** Python, LangGraph, FastAPI. Python chosen deliberately
+  because LangGraph's Python implementation has more mature
+  checkpointing/interrupt support for human-in-the-loop, and because most
+  agentic-AI tooling and reference material assumes Python.
 - **Retrieval:** Chroma (local vector store), hybrid search (keyword +
   vector) over a small fixed corpus — a handful of NSW/Commonwealth
   statutes plus ~10 NCAT/tribunal judgments, manually curated, not
   scraped.
 - **Generation:** Claude API (Anthropic), streamed.
-- **Frontend:** Next.js (App Router), Tailwind, shadcn/ui. React chosen
-  deliberately as a skills gap-filler (author's background is Angular).
-  Font: Google Fonts only (OFL-licensed), something in the Space
-  Grotesk / IBM Plex Sans / Public Sans family — not a paid/commercial
-  font, for both licensing-cleanliness and self-hosting reasons.
+- **Frontend:** Next.js (App Router), Tailwind, shadcn/ui. Font: Google
+  Fonts only (OFL-licensed), something in the Space Grotesk / IBM Plex
+  Sans / Public Sans family — not a paid/commercial font, for both
+  licensing-cleanliness and self-hosting reasons.
 
 ## Architecture
 

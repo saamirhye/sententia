@@ -6,7 +6,7 @@
 
 An agentic legal research assistant that decides at runtime how many search passes it needs before answering, instead of a fixed one-shot RAG call. It searches legislation and case law, assesses whether it has enough to answer confidently, and either loops back to search or generates a cited answer — capped at `MAX_ATTEMPTS`, with a reduced-confidence note if it hits the cap without being sure.
 
-Personal learning project. The point is defensible understanding of agentic AI architecture (LangGraph, multi-step reasoning loops, human-in-the-loop), explainable in detail for job interviews — not just a working demo. See `docs/brief.md` for the full "why agent vs. workflow" rationale (Ledgify comparison) if that context is ever needed; it's not repeated here because it doesn't change any code decision.
+Personal learning project. The point is genuine, defensible understanding of agentic AI architecture (LangGraph, multi-step reasoning loops, human-in-the-loop) — not just a working demo. See `docs/brief.md` for the full "why agent vs. workflow" rationale if that context is ever needed; it's not repeated here because it doesn't change any code decision.
 
 ## Tech stack (fixed — do not substitute)
 
