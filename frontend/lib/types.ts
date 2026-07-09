@@ -33,6 +33,7 @@ export interface Exchange {
   query: string;
   status: ExchangeStatus;
   answer: string;
+  answerChunks: string[]; // raw chunks in arrival order -- used only while actively streaming
   results: SearchResult[];
   sufficient: boolean | null;
   attempts: number | null;

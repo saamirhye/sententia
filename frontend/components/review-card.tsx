@@ -1,3 +1,4 @@
+import { AlertCircleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CitationChips } from "@/components/citation-chips";
@@ -10,13 +11,16 @@ interface ReviewCardProps {
 
 export function ReviewCard({ exchange, onResolve }: ReviewCardProps) {
   return (
-    <Card className="border-amber-400">
+    <Card className="border border-l-4 border-destructive/30 border-l-destructive shadow-sm ring-0">
       <CardHeader>
-        <CardTitle className="text-sm">Human review needed</CardTitle>
+        <CardTitle className="flex items-center gap-2 text-sm">
+          <AlertCircleIcon className="size-4 text-destructive" aria-hidden="true" />
+          Human review needed
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-sm">{exchange.reviewQuestion}</p>
-        <p className="mt-1 text-xs text-muted-foreground">
+        <p className="mt-1.5 text-xs text-muted-foreground">
           Reached after {exchange.attempts} search attempt(s).
         </p>
         <CitationChips results={exchange.results} />

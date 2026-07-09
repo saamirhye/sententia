@@ -12,6 +12,7 @@ function newExchange(query: string): Exchange {
     query,
     status: "streaming",
     answer: "",
+    answerChunks: [],
     results: [],
     sufficient: null,
     attempts: null,
@@ -52,7 +53,11 @@ export function useChat() {
           {
             onAnswerDelta: (text) =>
               setExchanges((prev) =>
-                prev.map((e) => (e.id === exchange.id ? { ...e, answer: e.answer + text } : e))
+                prev.map((e) =>
+                  e.id === exchange.id
+                    ? { ...e, answer: e.answer + text, answerChunks: [...e.answerChunks, text] }
+                    : e
+                )
               ),
             onHumanReviewRequired: (payload) =>
               updateExchange(exchange.id, {
@@ -101,7 +106,11 @@ export function useChat() {
           {
             onAnswerDelta: (text) =>
               setExchanges((prev) =>
-                prev.map((e) => (e.id === exchangeId ? { ...e, answer: e.answer + text } : e))
+                prev.map((e) =>
+                  e.id === exchangeId
+                    ? { ...e, answer: e.answer + text, answerChunks: [...e.answerChunks, text] }
+                    : e
+                )
               ),
             onHumanReviewRequired: () =>
               updateExchange(exchangeId, {
